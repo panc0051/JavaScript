@@ -38,3 +38,5 @@ setTimeout(() => {
 
 // Run every second
 setInterval(updateCountdown, 1000);
+
+//clear countdown
