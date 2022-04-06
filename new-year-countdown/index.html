@@ -10,31 +10,13 @@
 
   </head>
   <body>
-    <main class="container">
-      <h1 class="display-4 my-5">Color of the Day</h1>
-    </main>
+    
+  
     <div id="year" class="year"></div>
 
 
-    <h1>New Year Countdown</h1>
-    <div class="row">
-      <div class="col">
-        <form id="form" class="form 
-        p-4 
-        bg-light
-        border
-        border-1
-        rounded
-        mb-5
-        
-        "> 
-        <label class="form-label">Enter a date</label>
-        <input type="date" id="date" class="form-control mb-3" />
-        <button class="btn btn-primary btn-block" id="submit">Get Color</button>
-      
-      </form>
-      </div>
-    </div>
+    <h1>Next New Year will be in</h1>
+    
 
     <div id="countdown" class="countdown">
       <div class="time">
@@ -61,7 +43,26 @@
       id="loading"
       class="loading"
     />
+    <br>
+    
+    <form id="form" class="p-5 bg-light">
+      <div class="rol">
+        <div class="col">
+          <div id="today"></div>
+          <div id="saved"></div>
+  
+        </div>
+      </div>
 
+      <label for="" class="form-label">Title</label>
+      <input type="text" id="title" class="form-control mb-3" placeholder="Write Something!" />
+
+      <label for="" class="form-label">Date and time</label>
+      <input type="datetime-local" id="datetime" class="form-control mb-3" placeholder="Date and time" />
+      <button class="btn btn-primary" id="submit">Save Date</button>
+
+    </form>
+    
     <script src="script.js"></script>
   </body>
 </html>

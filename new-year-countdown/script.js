@@ -39,4 +39,62 @@ setTimeout(() => {
 // Run every second
 setInterval(updateCountdown, 1000);
 
-//clear countdown
+//retrieve HTML elements
+const $today = document.getElementById('today');
+const $saved = document.getElementById('saved');
+const $form = document.getElementById('form');
+const $title = document.getElementById('title');
+const $datetime = document.getElementById('datetime');
+
+//date constructor : Date()
+//create a date instance using new keyword
+const today = new Date();
+
+const options = {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+}
+
+$today.innerHTML = today.toLocaleString('en-CA', options);
+
+$form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  //get the title
+  const title = $title.value;
+
+  //get the datetime
+  //create date instance
+  const datetime = new Date($datetime.value);
+
+
+  $saved.textContent = `${title} will be saved on ${datetime.toLocaleString('en-CA', options)}`;
+
+  //create a data object
+  const data = {
+    title: title,
+    timestamp: datetime.getTime()
+  }
+
+  //store in local storage
+  localStorage.setItem('savedDate', JSON.stringify(data));
+
+
+})
+
+const ls = localStorage.getItem('savedDate');
+
+  if (ls) {
+    const data = JSON.parse(ls);
+
+    const title = data.title;
+    const datetime = new Date(data.timestamp);
+
+
+  
+  $saved.textContent = `${title} will be saved on ${datetime.toLocaleString('en-CA', options)}`;
+
+  }
